@@ -13,11 +13,11 @@ To find out more about Task 32 activities, see the Task 32 website at https://co
 # Versions
 Please note that this document will be updated regularly. Releases (i.e., stable versions) can be found at https://github.com/IEA-Wind-Task-32/white-paper-openLidar/releases and at https://doi.org/10.5281/zenodo.3414196. 
 
-# How to provide feedback to the roadmap
+# How to provide feedback
 There are two ways to provide feedback to this document.
 
 ## Through Github
-You can provide feedback to this document by [raising an issue](https://github.com/IEA-Wind-Task-32/white-paper-openLidar/issues). Before you raise an issue, please take a few minutes to check if there is a similar one in the list already.
+You can provide feedback by [raising an issue](https://github.com/IEA-Wind-Task-32/white-paper-openLidar/issues). Before you raise an issue, please take a few minutes to check if there is a similar one in the list already.
 
 **You will have to be logged in to Github to provide feedback**. This means that your feedback will be associated with your username, which may make it possible to identify you. We prefer to have feedback associated with a name because this white paper is a community document.
 
