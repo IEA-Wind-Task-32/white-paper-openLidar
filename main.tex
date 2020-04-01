@@ -2,407 +2,189 @@
 
 \usepackage{./Task32FlyerLatexStyle/Task32Flyer}
 \usepackage{todonotes}
-
-% call all of the roadmap-specific styling
-\input{roadmapsty.tex}
-
 %% -----------------------------------
 %% Document information
 %% -----------------------------------
-\def\pubdate{01 December 2019}
-\title{IEA Wind Task 32: Collaborative R\&D Roadmap}
-\shorttitle{Collaborative R\&D Roadmap}
-\DOI{10.5281/zenodo.3604290}
-\addbibresource{bibliography.bib}
+\date{02 October 2019}
+\shorttitle{The OpenLidar Initiative}
+\title{The OpenLidar initiative for wind lidar hardware and software collaboration}
+\DOI{10.5281/zenodo.3414197}
+\version{0.9}
+\bibliography{bibliography}
 
 %% ===================================
 %% Document starts
 %% ===================================
+
 \begin{document}
-	
-	%% -----------------------------------
-	%% Title
-	%% -----------------------------------
-	\maketitle
-	\thispagestyle{cover}
-	
-	%% -----------------------------------
-	%% Introductory text
-	%% -----------------------------------
-	{\Large\noindent%
-		Task 32 has created a worldwide network of wind lidar researchers who meet regularly to identify opportunities for the use of wind lidar, and mitigate the barriers to its adoption.
-	}
-	\vskip 6pt
-	
-	Wind lidar has many applications for wind energy that span all technology readiness levels. Task 32 connects many stakeholders including the research community, vendors, service providers, and end users with the aim of creating an active network for the exchange of information and experience.
-	
-	%% -----------------------------------
-	%% About
-	%% ----------------------------------- 
-    \section*{About this document}
-	This document provides an overview of our members' goals and the activities that we have already undertaken, and our plans for the future. They are intended to help stakeholders engage with the Task, provide feedback, and suggest new activities.
-	
-	An overview of the technical background to these activities is provided in an article written by the Task 32 Advisory Board in 2018 \cite{Clifton_2018_a} and in other references cited in the text.
-	
-	It is expected that this document will be updated annually. 
-	
-	\section*{Feedback}
-	Feedback about the activities described here should be directed to the Task 32 Operating agents. Contact details can be found on the \href{https://community.ieawind.org/task32/about/contact}{Task 32 website}.
-	
-	\newpage
-	\section*{List of Roadmaps}
-	Task 32 has prepared roadmaps for several interrelated areas of wind lidar research and development:
-	
-	\tcblistof[]{roadmap}{}
-	
-	The roadmaps include activities led by Task 32 (shown in bold text) and by other groups (lighter text).
-	
-	% -----------------------------------
-	% Operating Conditions
-	% -----------------------------------
-	\newpage
-	\section*{What are the conditions where we want to build wind turbines?}
-	
-	Wind lidar can be used to measure wind resources and design conditions on land and offshore. %as part of a wind resource measurement campaign. 
-	% While there is clear evidence of good agreement with traditional wind measurements from cup anemometers on meteorological masts, the fundamentally different measurement principle of a cup compared to a lidar results in some differences in complex terrain. Also, there are opportunities to use wind lidar in cold climates, for example to quantify the risk of wind turbine- or instrument icing, but these need to be explored in detail. These and other issues mean that there is a continued need for Task 32 members to actively cooperate in this area. Our common goal is the confident use of wind lidar to characterise operating conditions in all terrains and environments where wind turbines might be installed or operated.
-	
-	% -----------------------------------
-	% Complex Terrain
-	% -----------------------------------
-	\subsection*{How do we interpret lidar data in complex terrain and complex flows?}
 
-	In complex terrain, data from wind lidars can differ from cup anemometers as they use different measurement principles. But, wind lidar may be more flexible in complex terrain than tower-mounted anemometers. Task 32 collects, collates, and disseminates experience in the use of wind lidar in complex terrain and flow situations and thus enables its successful use in future.
-	
-	% roadmap block
-	\begin{roadmap}[float = h, label=complex]{Wind lidar in complex terrain}
-	    \RMgoal{Understand how lidar data are related to point measurements, and how to use lidar to improve understanding of winds in complex terrain.}
-	    \RMactivities
-		\begin{RMold} 
-			\taskevent{2013}{Jan.}{Recommended Practice 15}{Ground-based vertically-profiling remote sensing for wind resource assessment}{Advice for remote sensing in flat terrain \cite{clifton_2013_RP15}}\\
-			\taskevent{2017}{Nov.}{Workshop 7}{Wind Lidar in Complex Terrain}{Experience, challenges, and needs for wind lidar in complex terrain}\\
-	    \end{RMold}
-	    \tcblower
-		\begin{RMnew}
-			\taskevent{2019}{Oct.}{Comparative Exercise}{Wind lidar in complex terrain}{Focus on mean wind characteristics. Runs through end 2020.~\extlink{https://community.ieawind.org/task32/events/event-information/comparative-exercise-complex-terrain-correction}}\\
-			\otherevent{2019}{}{CFARS: Ongoing investigations into the use of models with wind lidar}\\
-		\end{RMnew}
-		\RMdeliverables{2021: Report on methods for correcting wind data in complex terrain}
-		\RMoutcome{Evidence-based assessment of methods to compare wind lidar data with cup anemometers}
-	\end{roadmap}
-	
-	% -----------------------------------
-	% Cold Climates
-	% -----------------------------------
-	\newpage
-	\subsection*{What are the opportunities and challenges when using lidar in cold climates?}
-    
-    Wind lidar have been used successfully in cold climates for many years. They have potential advantages over traditional met towers because they can be less prone to icing than traditional anemometers, and they are also easier to install in remote or hard-to-reach locations. There are also challenges with their use in cold climates such as keeping them ice- and snow-free, and of providing power supplies. Most of the challenges can be mitigated, meaning that there are clear opportunities for the wind energy community to exploit their advantages.
-    
-    Roadmap \ref{rm:coldclimates} describes Task 32's steps to support the effective use of wind lidar for wind energy in cold climates.
+%% -----------------------------------
+%% Title
+%% -----------------------------------
+\maketitle
+\thispagestyle{firststyle}
 
-	\begin{roadmap}[label=rm:coldclimates]{Wind lidar for wind energy in cold climates}
-    \RMgoal{Exploring the uses of wind lidar to support wind energy deployment in cold climates (together with IEA Wind Task 19).}
-    \RMactivities
-		\begin{tabular}{@{}p{0.075\columnwidth} p{0.075\columnwidth}  p{0.7\columnwidth}@{} } 
-			\taskevent{2013}{}{Recommended Practice 15}{Ground-based vertically-profiling remote sensing for wind resource assessment}{Advice for deploying and operating wind lidar in cold climates \cite{clifton_2013_RP15}}\\
-			\taskevent{2018}{Oct.}{General Meeting}{2019}{Identified potential opportunities and challenges for wind lidar in cold climates, including the need for a working group}\\
-		\end{tabular}
-		\tcblower
-		\begin{tabular}{@{}p{0.075\columnwidth} p{0.075\columnwidth}  p{0.7\columnwidth}@{} }
-			\taskevent{2020}{Jan.}{Working Group}{wind lidar in cold climates}{Form a group of stakeholders from Task 32 and Task 19 to drive activities.~\extlink{https://community.ieawind.org/task32/events/event-information/wind-lidar-in-cold-climates}}\\
-		\end{tabular}
-	\RMdeliverables{TBD}
-	\RMoutcome{Support the effective use of wind lidar for wind energy in cold climates}
-	\end{roadmap}
+%% -----------------------------------
+%% Introductory text
+%% -----------------------------------
+{\Large\noindent\nohyphens{%
+Wind lidars are complex devices that take huge expertise to develop and operate. How could future lidar be designed to enable and support experimentation and collaboration?}
+}
+\vskip 6pt
 
-	% -----------------------------------
-	% Offshore
-	% -----------------------------------
-	\newpage
-	\subsection*{How can we use wind lidar offshore, and how can we assess the performance of floating Lidar systems?}
+The OpenLidar initiative was started in 2015 by members of IEA Wind Task 32. Its goal is to encourage collaboration around wind lidar hardware and software by developing a modular wind lidar architecture and providing a framework for cooperation.
 
-	Floating wind lidar systems are cheaper and can be more flexibly used than lidar deployed to fixed platforms. For these and other reasons they have rapidly become the preferred tool for offshore wind resource assessment campaigns, and are also increasingly considered for alternative applications, e.g., power performance measurements.
-	
-	Task 32 supported the development of an offshore wind community and the creation of relevant recommended practices, leveraging support from the Carbon Trust. Roadmap \ref{rm:FLS} describes our past and future activities in this area.
-	
-	\begin{roadmap}[label=rm:FLS]{Floating lidar systems}
-	\RMgoal{Support the commercialisation of floating wind lidar systems and the transfer of research experience into everyday practice}
-	\RMactivities
-    \begin{RMold}
-        \taskevent{2016}{Feb}{Workshop 1}{Floating Lidar}{}\\
-    	\taskevent{2018}{}{Recommended Practice 18}{Floating Lidar Systems \cite{bischoff_2017_a}}{}\\
-		\taskevent{2018}{Nov.}{Workshop 13}{Floating Lidar Follow-up}{Reviewed immediate and near-future needs for collaborative R\&D}\\
-		\taskevent{2019}{June}{IEC TC 88}{}{Floating wind lidar proposed for standardisation}\\
-	\end{RMold}
-	\tcblower
-	\begin{RMnew}
-		\otherevent{2020}{Q1}{Early-stage researchers start 3-year PhD programmes in EU-funded Innovative Training Networks Lidar Knowledge Europe (ITN LIKE) and FLOAtingWind Energy netwoRk (ITN FLOAWER)}\\
-	\end{RMnew}
-	\RMdeliverables{2021: Possible update of RP18 on floating lidar systems}
-	\RMoutcome{Provide maximum input to the IEC TS 61400-50-4 initiative}
-	\end{roadmap}
+\section*{Integrated solutions are not the only answer}
+Wind lidar are designed and optimised for specific applications, for example to measure vertically-resolved profiles or to scan arbitrary patterns from a fixed point. They also integrate much of their function into a single unit. This focus reduces manufacturing costs and helped enabled early adoption by simplifying industry learning, but it also has some drawbacks. Such integrated systems are hard to adapt for other tasks, are usually ``black boxes'', can be over-engineered, and are hard to upgrade. As a result new applications often require entirely new devices. This need to start from scratch reduces the potential for technological innovations and makes it harder to try new applications.
 
-    
-    % -----------------------------------
-	% Turbulence intensity for site assessment and loads certification
-	% -----------------------------------
-	\newpage
-	\subsection*{How can we use lidar turbulence intensity data for site assessment and loads certification?}
-	
-    Wind lidar can provide data about the turbulence characteristics of wind \cite{Sathe_2015_a, Pena_2019_a}.
-    
-    There is an ongoing discussion about the relationship between lidar-derived turbulence information and data obtained from a cup anemometer, and how a wind turbine or wind plant responds to turbulence. These are being explored by several groups and it is hoped that in 2020 a joint Working Group will be established between Task 32 and others to align our activities and communication with stakeholders (Roadmap \ref{rm:TI}). 
-    
-    In addition, Task 32 plans to evaluate how lidar can contribute to load verification beyond providing providing turbulence information similar to conventional measurements.
+\section*{The benefits of modular wind lidar}
+Most wind lidar manufacturers tend to have a base design that they adapt for different uses. This reduces development costs and can speed market acceptance. For example, a scanning optics head (for following an arbitrary measurement path) could be replaced with a rotating prism to create a vertically-profiling lidar.  As a result, many lidar designs are already inherently modular. However, the module boundaries are not consistent across suppliers and so cannot be exchanged. Also, there is often little information about the data processing taking place inside the modules.
 
-	\begin{roadmap}[label=rm:TI]{Turbulence intensity}
-	    \RMgoal{Ability to use wind lidar as part of a site assessment or wind turbine loads certification process}
-	    \RMactivities
-		\begin{RMold}
-		    \taskevent{2015}{}{IEA Wind Expert Report}{Estimating turbulence statistics and parameters from ground- and nacelle-based Lidar measurements}{Summary of methods and results \cite{Sathe_2015_a}}\\
-			\taskevent{2018}{Oct.}{Workshop 10}{Turbulence intensity measurements with lidars – applications to loads verification and site suitability}{Identified barriers and solutions to the widespread application of lidar for these applications}\\
-			\otherevent{2019}{June}{DNV-GL announce wind lidar turbulence Joint Industry Project (JIP)~\extlink{https://www.dnvgl.com/news/dnv-gl-launches-new-joint-industry-project-to-cut-wind-energy-costs-through-lidar-measurements-154393}}\\
-			\otherevent{2019}{}{CFARS starts to explore the use of turbulence intensity data from lidar~\extlink{http://www.cfars.org/}}\\
-		\end{RMold}
-		\tcblower
-		\begin{RMnew}
-			\taskevent{2020}{Q1}{Working group on lidar Ti}{Working group with Task 32, CFARS, and DNV-GL JIP to coordinate activities, share results, and ensure stakeholder buy-in}{}\\
-		\end{RMnew}
-        \RMdeliverables{2020 Q1: Joint roadmap with Task 32, CFARS and DNV-GL JIP}
-		\RMoutcome{Clearer understanding of methods to measure wind turbulence, how they relate to existing metrics, and how they relate to wind turbine applications}
-	\end{roadmap}
-	
-	% -----------------------------------
-	% Turbine and Plant Controls
-	% -----------------------------------
-	\newpage
-	\section*{How can we use lidar to better operate wind turbines and plants?}
-	Wind lidar can measure the winds in and around operating wind turbines and wind plants with unprecedented detail. Several reports have identified this as a key enabling technology for reducing the cost of wind energy in future \cite{Veers_2019_a}, and it forms a core part of Task 32's work.
-    
-	% -----------------------------------
-	% Turbine Certification
-	% -----------------------------------
-	\subsection*{How do we certify and optimize turbines that use lidar-assisted controls?}
-    Wind Lidar can provide information about incoming winds that can be used to make wind turbine control decisions. Implementing lidar-assisted control systems brings new challenges related to optimising the wind lidar that are used for this application, and to optimising the turbine controller and structure for the new opportunities presented by the turbine. 
-    
-    Task 32 seeks to enable communication and collaboration between wind turbine OEMs, lidar vendors, certification agencies, and the research community to address these challenges (Roadmap \ref{rm:LAC}).
-    
-	\begin{roadmap}[label=rm:LAC]{Lidar-assisted controls}
-	    \RMgoal{To use wind lidar as an additional wind turbine/ wind plant sensor to improve wind turbine and wind plant control}
-	    \RMactivities
-		\begin{RMold}
-		    \taskevent{2016}{Jul.}{Workshop 2}{Optimizing lidars for wind turbine control applications \cite{Simley2018_RS}}{}\\
-			\taskevent{2018}{Jan.}{Workshop 8}{Certification of lidar-assisted controls applications \cite{Schlipf2018a}}{}\\
-			\taskevent{2019}{Oct.}{Workshop 15}{Optimizing wind turbines using LAC using Systems Engineering methods}{Joint workshop with Task 37}\\
-		\end{RMold}
-		\tcblower
-		\begin{RMnew}
-			 \taskevent{2020}{}{Workshop}{Lidars for wind farm control applications}{}\\
-		\end{RMnew}
-		\RMdeliverables{2020 Q4: Research Plan on how to evaluate the benefit of lidar-assisted controls together with IEA Wind Task 37}
-	\end{roadmap}
+Coordinated modular lidar would allow systems to be changed and optimised depending on the lidar's use case. Modules could be developed by experts and combined by users for specific use cases. This would require well-defined interfaces between the modules for power, signals, and mounting. Ideally, vendors would also provide detailed documentation of each module.
 
-	% -----------------------------------
-	% Forecasting
-	% -----------------------------------
-	\newpage
-	\subsection*{Forecasting}
-    Because of their ability to look upwind, wind lidar can be used to forecast the winds arriving at wind plants or wind turbines 10 minutes or more in advance. This can be used to forecast energy output or make wind turbine- and wind farm- level control decisions. 
-    
-    Task 32 and Task 36 (Forecasting) worked together to establish the opportunities and needs for such minute-scale forecasts.
+% logo
+{\centering
+\includegraphics[width=0.75\linewidth]{graphics/OpenLidarLogo.png} 
+}
+% FH 20.09. I would suggest to put the OpenLidar logo in the header instead of having it here in the text floating around a little bit lost in between sections. This would also allow for a couple more lines or a second example in figure 2 as proposed further down.
+% HF 25.09. Agree with FH. The logo should be placed in the header (or left-justified next to the two lines of the title?).
 
-    \begin{roadmap}[label=offshore]{Forecasting}
-        \RMgoal{Identify the opportunities and needs for lidar-supported wind and power forecasting}
-        \RMactivities
-		\begin{RMold}
-			\taskevent{2018}{Jun.}{Workshop 9}{Experience in very short-term forecasting}{Joint workshop with Task 36~\extlink{https://community.ieawind.org/task32/events/event-information/workshop-9}}\\
-		\end{RMold}
-		\RMoutcome{2019: Summary of the different approaches to minute-scale forecasting and possible near-future developments published in \emph{Energies} \cite{Wuerth2019_Energies}}
-		\tcblower
-		No further activities are planned in this area.
-	\end{roadmap}
-	
-    % -----------------------------------
-	% # Performance verification
-	% -----------------------------------
-	\newpage
-	\section*{How can we use lidar for performance verification?}
-	Wind lidars can be deployed on the ground or on nacelles for temporary power performance testing, or integrated into the turbine for continuous monitoring. They can characterise the wind shear and veer across the rotor disk, and thus are very useful for detailed performance studies.
-	
-	Task 32 supported validation of the uncertainty guidance in Edition 2 of the IEC 61400-121 Standard (2017) \cite{IEC_standard_61400-12-1_2017}. Since then the Task has looked at the use of nacelle-mounted lidar in complex terrain (Roadmap \ref{rm:NacelleMountedComplexTerrain}) and at using measurements in the wind turbine induction zone as input to a performance verification (Roadmap \ref{rm:InductionZone}).
-	
-    % -----------------------------------
-	% ## Nacelle-mounted lidar in complex terrain
-	% -----------------------------------
-	\subsection*{Nacelle-mounted lidar in complex terrain}
-	
-	It can be challenging to relate wind conditions at a turbine's location to a reference wind measurement, especially in complex (inhomogenous) wind conditions associated with complex terrain. Instead, it may be possible to use nacelle-mounted lidar to measure upwind of the turbine and use that data for power performance verification.
-	
-    %\todo[inline]{@Rozenn - do you think this is OK? it's based on the material we wrote for the Task 32 website}
+\section*{The OpenLidar concepts}
+The heart of the OpenLidar initiative is the idea of modular lidar systems with clear interfaces and good documentation. Based on a survey of existing devices, the OpenLidar group developed a generic modular wind lidar architecture where the modules are connected by power and data buses (Figure \ref{fig:modules} and Table \ref{t:modules}). The function of each module can be customised for a specific application.
 
-    \begin{roadmap}[label=rm:NacelleMountedComplexTerrain]{Nacelle-mounted lidar in complex terrain}
-	\RMgoal{Enable the use of nacelle-mounted lidar for power performance verification}
-	\RMactivities
-    \begin{RMold}
-    	\otherevent{2017}{}{Start of development of IEC 61400-50-3 for nacelle-mounted lidar for wind measurements}\\
-	\end{RMold}
-	\tcblower
-	\begin{RMnew}
-        \taskevent{2020}{Jan.}{Round Robin}{Comparison of nacelle-mounted lidar methods for power performance testing in complex terrain}{Application of several methods and comparison of experience~\extlink{https://community.ieawind.org/task32/events/event-information/comparative-exercise-power-curve-verification}}\\
-        \taskevent{2020}{Q4}{Workshop}{Comparison of nacelle-mounted lidar methods for power performance testing}{Presentation and discussion of results from the round robin exercise}
-	\end{RMnew}
-	\RMdeliverables{2021: Proposal to IEC 61400-50-3 for nacelle-mounted lidar for wind measurements}
-	\RMoutcome{}
-	\end{roadmap}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.1\linewidth]{graphics/OpenLidarModules.png} 
+    \caption{The OpenLidar modular wind lidar concept uses digitalisation to enable innovation in wind lidar.}
+\label{fig:modules}
+\end{figure}
 
-    % -----------------------------------
-	% ## Measurements in the induction zone
-	% -----------------------------------
-	\newpage
-	\subsection*{Measurements in the induction zone of wind turbines}
-	
-	Current power performance standards require wind speed measurements for power performance verification to be taken at more than 2 diameters upwind. This is challenging with larger wind turbines.
-	
-	Task 32's experience suggests that it may be feasible to use measurements closer to the rotor to estimate free-stream wind conditions as part of power performance verification (Roadmap \ref{rm:InductionZone}).
+Each module requires interfaces, a module-specific controller to convert commands into action, and hardware and software to implement those commands. The modules would also be documented. These interfaces, controller, hard- and software, and documentation would allow them to be combined with other modules to create a lidar system with predictable characteristics. Importantly, such a lidar could also be modelled in detail using the design information, and those models could be validated through module unit tests.
 
-    \begin{roadmap}[label=rm:InductionZone]{Power performance verification using measurements in the induction zone}
-	\RMgoal{Use of wind lidar to measure in the induction zone of a wind turbine and relate these to wind turbine power output}
-	\RMactivities
-    \begin{RMold}
-        \taskevent{2018}{}{Round Robin}{Windfield reconstruction in the induction zone}{Estimate of free-stream wind speed from a common data set}\\
-    	\taskevent{2019}{Jan}{Workshop 11}{Windfield reconstruction in the induction zone}{Joint workshop with the Power Curve Working Group to present the results of the round robin}\\
-	\end{RMold}
-	\tcblower
-	\begin{RMnew}
-		\taskevent{2020}{}{Round Robin}{Windfield reconstruction in the induction zone with wind plant blockage}{Extends the previous round-robin to consider the effects of flow blockage associated with other turbines in an offshore array}\\
-        \taskevent{2021}{}{Workshop}{Windfield reconstruction in the induction zone with wind plant blockage}{Presenting the results of the round robin.}
-	\end{RMnew}
-	\RMdeliverables{Report on windfield reconstruction in the induction zone, summarizing results from the Round Robins and workshop }
-	\RMoutcome{More accurate power performance testing of wind turbines in operational wind plants}
-	\end{roadmap}
+\begin{table}[h]
+	\caption{The main functions of the OpenLidar modules.}\label{t:modules}
+	\begin{tabular}{@{}p{0.35\columnwidth}
+			@{}p{0.65\columnwidth}@{}}
+		\toprule
+		Module & Function \\
+		\midrule
+		Power & power conversion and conditioning, current and voltage control\\
+		Interlocks & safe operation of the system\\
+		Photonics & Laser source, beam splitter, detector \\
+		Optics & beam forming and focusing \\
+		Scanner & beam steering, position sensing\\
+		% HF 25.09. This is just a general comment from my point of view (maybe I should have told you that earlier): Actually I do not like "Scanner" for the name of this module. Because not every lidar has to be a scanning lidar. There are even lidars with no beam steering (see Whirlwind http://www.opticsense.eu/products-wind-lidar.php). Is a 2- or 4- beam lidar already a scanning lidar?
+		% Of course we could all agree on that definition "scanner" because definitions cannot be right or wrong (only more or less useful). But somehow in my head this does not make sense. For me a scanner is only a particular subset of the lidar family, a very advanced one. Furthermore, I would subdivide lidar scanners even more accurate: into scanners with fixed or predefined scanning patterns and into scanners with "arbitrary" user-defined scanning patterns.
+		% Summarising, I would break down the name of this module to a more abstract level: For me it is all about "beam deflection / steering".
+		Controller & manages other modules; converts input commands to system actions\\
+		Communications & transfer data to/from the device\\
+		Signal processor & process raw data to e-WindLidar level 0 data \cite{Vasiljevic_2018_2478051}\\
+		Storage & data memory\\
+		Housing & weather protection, environmental conditioning\\
+		Chassis & physical carrier(s) for modules \\
+		% HF 25.09. @Andy: Please see my comment in Slack about "heating and cooling management" and "electromagnetic compatibility (EMC)". Not sure yet if those two should be own modules or if it is enough to mention them somewhere in the function column in table 1. 
+		\bottomrule
+	\end{tabular}
+\end{table}
 
-	% -----------------------------------
-	% Hardware and Software Collaboration
-	% -----------------------------------
-	\newpage
-	\section*{How can we collaborate on hardware and software?}
-	
-	Wind lidar are traditionally expensive devices that have been heavily optimized for specific applications. This also applies to software, which have been designed for certain workflows. This makes it challenging to test new ideas for wind lidar - as a new device is needed - or to share results between groups. 
-	
-	Task 32's members have been developing the frameworks and tools needed to collaborate on device hardware and software, and the software used to analyse results (Roadmap \ref{rm:Collaboration}). 
+It is important to note that a functioning lidar does not have to be a single unit. It could also be several hardware units connected by cables for data, power, and signals. These separate units would be for e.g. the photonics, optics, and scanner (e.g. Figure \ref{fig:examples}) and there would therefore be several chassis and housing modules, each with their own interlocks.
 
-	\begin{roadmap}[label=rm:Collaboration]{Collaboration on wind lidar hardware and software}
-	\RMgoal{Reduce the time and effort needed to design and test innovations in wind lidar device hardware and software}
-	\RMactivities
-    \begin{RMold}
-    	\taskevent{2017}{Nov.}{General Meeting}{OpenLidar concept presented \cite{clifton_2019_3414197}}{}\\
-    	\otherevent{2018}{}{The e-windLidar tools repository on Github provides a central point to exchange and collaborate on tools~\extlink{https://github.com/e-WindLidar}}\\
-		\taskevent{2018}{Oct.}{Workshop 12}{e-WindLidar}{Identifies opportunities and challenges for collaboration on wind lidar device software and data processing software} \\
-	\end{RMold}
-	\tcblower
-	\begin{RMnew}
-		\otherevent{2020}{Q1}{Early-stage researchers start in EU-funded ITN LIKE training network~\extlink{www.msca-like.eu}}\\
-	\end{RMnew}
-	\RMdeliverables{Reference lidar designs and campaign uncertainty estimates using the OpenLidar concept}
-	\RMoutcome{Frameworks, tools, and examples for collaboration on wind lidar hardware and software}
-	\end{roadmap}
-	
-	These activities will allow us to develop new wind lidar devices and trial new applications, and estimate the measurement performance of wind measurements in advance. Software tools will also capture and share some of the community's knowledge, reducing our reliance on today's experts.
+\section*{Modular lidar in use}
+The OpenLidar group set out a potential architecture for modular wind lidar in 2016. A similar architecture was used in a scanning device in 2017 \cite{Wuerth_2017_3416356}, and in 2018 a UK lidar company partnered with a University to connect a ground-based lidar to optics mounted on a drone via a glass fibre \cite{wes-2019-13}. Now, several companies supply lidar systems where the optics, photonics, and data processing units are in separate units.
+% FH 20.09. Is the paper cited for the drone application actually the correct one? Isn't that Nikola's paper on the campaign planning tool?
+% HF 25.09. I have just read this paper. No drones mentioned :).
 
-    % -----------------------------------
-	% Open Questions
-	% -----------------------------------
-    \newpage
-	\section*{Other Activities}
-	Task 32 offers its members a range of ways to exchange information and experience and disseminate their results to others.
-	\subsection*{Commitment to Open Science}
-    Task 32 leverages public money from many countries. We therefore aim to make our results freely accessible. To support this goal, we regularly update the  \href{https://community.ieawind.org/tasks/task32}{Task 32 website} with news and results from the Task's activities. In 2019 we started \href{https://community.ieawind.org/task32/ourlibrary/glossary/wgalphabeticaltab}{a glossary} on the website to capture some of the Task's knowledge and share it with others. We have also launched a Task 32 \href{https://zenodo.org/communities/ieawindtask32/}{document repository} where we collect material from our events and publish white papers.
+\begin{figure}[h]
+    \centering
+\includegraphics[width=1\linewidth]{graphics/OpenLidarExampleCropped.png} 
+\caption{Openlidar modules can be combined in many ways.}
+\label{fig:examples}
+\end{figure}
+% do we need to add a picture of a drone or a floating lidar to this?
 
-    \subsection*{Events}
-    We hold around three workshops every year. These are focussed on one specific application and are intended to make progress on a clear question. Many examples of these workshops can be found in the roadmaps.
-    
-    We also hold an annual General Meeting. The meeting is a mixture of presentations, discussion, and workshop sessions, and is attended by around 50 Task members from academia, industry, and government. The meeting includes results from the prior year's workshops and often triggers new activities. We will hold Task 32 General Meetings in Vienna in 2020 and Stuttgart in 2021.
-    
-    \subsection*{Advisory Board Meetings}
-    Task 32 is facilitated by Operating Agents who are in turn supported by a 12-person Advisory Board drawn from the Task. The advisory board provides a way for the participants, Operating Agents, and other Tasks to quickly respond to changing situations and keep the Tasks activities relevant.
-    
-	
-	% -----------------------------------
-	% Get involved
-	% -----------------------------------
-	\section*{Providing input to future versions}
-	The Task 32 roadmap has been developed by the Task 32 Operating Agent and Advisory Board based on input from the Task's stakeholders. The easiest way to help set the Task's future direction is therefore to get involved with the Task. We welcome participants at our events from any of Task 32's member countries, and encourage observers from the rest of the IEA wind member countries. We'd love to hear your opinions about what we should be doing, or ideas for solutions that benefit the whole community. Please see the \href{https://community.ieawind.org/task32/events/upcomingevents}{Task 32 website} for information about our events.
-	
-	%% -----------------------------------
-    %% References
-    %% -----------------------------------
-    %\section*{References}
-    % bibliography
-    \label{sec:References}
-    \addcontentsline{toc}{section}{References}
-    {\small
-    \printbibliography
-    }
-	\vspace*{\fill}
+Breaking lidar up into smaller and lighter units will lead to experiments for other applications, for example in urban meteorology, for vehicles and aviation, and elsewhere.
+ 
+\section*{The OpenLidar development roadmap}
+The IEA Wind Task 32 OpenLidar Working Group aims to support the development of modular wind lidar. This group will document the modular architecture and their interfaces, allowing vendors and other manufacturers to develop hardware and software for the modules. These hardware and software can then be used by others for new applications.
 
-	%% -----------------------------------
-	%% Outlined block of smaller text
-	%% -----------------------------------
-	\begin{tcolorbox}[width=1.0\columnwidth,
-		boxsep=0pt,
-		left=3pt,
-		right=3pt,
-		top=3pt,
-		arc=0pt,
-		boxrule=0.5pt,
-		toprule=0.5pt,
-		colback=white,
-		coltext=TextGrey
-		]
-		{\footnotesize
-			This document was self published by IEA Wind Task 32.
-			
-			%% -----------------------------------
-			%% IEA WIND AND TASK 32
-			%% -----------------------------------
-			\begin{tabular}{m{0.3\columnwidth}m{0.6\columnwidth}}
-				% IEA Wind * DO NOT EDIT THIS TEXT *
-				\includegraphics[height=2cm]{graphics/IEAWind_logo.jpg} &
-				The International Energy Agency is an autonomous organisation which works to ensure reliable, affordable and clean energy for its 30 member countries and beyond. The IEA Wind Technology Collaboration Programme supports the work of 38 independent, international groups of experts that enable governments and industries from around the world to lead programmes and projects on a wide range of energy technologies and related issues.%
-				\\
-				% Task 32 * DO NOT EDIT THIS TEXT *
-				\includegraphics[height=1.5cm]{graphics/Task32_logo.jpg} &
-				\href{https://community.ieawind.org/task32/home}{IEA Wind Task 32} exists to identify and mitigate the barriers to the deployment of wind lidar for wind energy applications.
-			\end{tabular}%
-			
-			%% -----------------------------------
-			%% For more information
-			%% -----------------------------------
-			% N.B. do not add line breaks between the next items
-			\textbf{For more information:} See the  \href{https://community.ieawind.org/task32/home}{Task 32 website}.
-			%% -----------------------------------
-			%% Authors
-			%% -----------------------------------
-			\textbf{Author team:} %
-			Andrew Clifton (Task 32 Operating Agent, University of Stuttgart, Germany), %
-			David Schlipf (Task 32 operating Agent, Flensburg University of Applied Sciences, Germany).
-			%% -----------------------------------
-			%% Reviewers
-			%% -----------------------------------
-			%\textbf{Reviewers:} %
-			% first last (short affiliation), %
-			% first last (short affiliation).
-			%% -----------------------------------
-			%% Images
-			%% -----------------------------------
-			\textbf{Images:}
-			Banner, left to right: \href{https://unsplash.com/@alexkixa}{Alexandre Debiève on Unsplash}, \href{http://ifb.uni-stuttgart.de}{SWE U. Stuttgart}, \href{https://unsplash.com/@markusspiske}{Markus Spiske on Unsplash}.
-		}
-		
-		%% -----------------------------------
-		%% End of highlighted block
-		%% -----------------------------------
-	\end{tcolorbox}
-	\vspace*{\fill}
+During 2020 more than 20 PhD students will start working on projects in two EU Horizon 2020 Innovative Training Networks, Lidar Knowledge Europe (ITN LIKE) and FLOAting Wind Energy NetwoRk (ITN FLOAWER). Several will apply the OpenLidar concept, adding to the body of knowledge around the development and use of modular lidar.
+
+%documentation
+Documentation will be an essential part of the OpenLidar platform. The architecture and modules are documented at \href{https://github.com/e-WindLidar/OpenLidarModuleDefinitions}{Github/e-WindLidar}. Github provides structured environment for creating the definitions and gathering feedback, and is familiar to most of the software development community. Anyone designing, building, or selling OpenLidar modules is encouraged to review these, and provide information about their modules.
+
+\section*{Conclusions}
+The OpenLidar concept aims to enable innovation and collaboration on wind lidar device hardware and software by creating a well-defined modular architecture. This is documented at Github and can be used by anyone working on wind lidar technology.
+
+%% -----------------------------------
+%% References
+%% -----------------------------------
+%\section*{References}
+% bibliography
+\label{sec:References}
+\addcontentsline{toc}{section}{References}
+\defbibnote{openaccess}{The following documents are all open access.}
+{\small
+\printbibliography[prenote=openaccess]
+}
+
+%% -----------------------------------
+%% Outlined block of smaller text
+%% -----------------------------------
+\begin{tcolorbox}[width=1.0\columnwidth,
+                  boxsep=0pt,
+                  left=3pt,
+                  right=3pt,
+                  top=3pt,
+                  arc=0pt,
+                  boxrule=0.5pt,
+                  toprule=0.5pt,
+                  colback=white,
+                  coltext=TextGrey
+                  ]
+{\footnotesize
+This white paper was self published by IEA Wind Task 32.
+
+%% -----------------------------------
+%% IEA WIND AND TASK 32
+%% -----------------------------------
+\begin{tabular}{m{0.3\columnwidth}m{0.6\columnwidth}}
+    % IEA Wind * DO NOT EDIT THIS TEXT *
+    \includegraphics[height=2cm]{graphics/IEAWind_logo.jpg} &
+    The International Energy Agency is an autonomous organisation which works to ensure reliable, affordable and clean energy for its 30 member countries and beyond. The IEA Wind Technology Collaboration Programme supports the work of 38 independent, international groups of experts that enable governments and industries from around the world to lead programmes and projects on a wide range of energy technologies and related issues.  %
+    \\
+    % Task 32 * DO NOT EDIT THIS TEXT *
+    \includegraphics[height=1.5cm]{graphics/Task32_logo.jpg} &
+    \href{www.ieawindtask32.org}{IEA Wind Task 32} exists to identify and mitigate the barriers to the deployment of wind lidar for wind energy applications.
+\end{tabular}%
+
+%% -----------------------------------
+%% For more information
+%% -----------------------------------
+% N.B. do not add line breaks between the next items
+\textbf{For more information:} See the  \href{https://github.com/e-WindLidar/OpenLidarModuleDefinitions}{OpenLidar module definitions on GitHub}. We welcome feedback as \href{https://github.com/e-WindLidar/OpenLidarModuleDefinitions/issues}{issues}.
+%% -----------------------------------
+%% Authors
+%% -----------------------------------
+\textbf{Authors and OpenLidar initiative team:} %
+Andrew Clifton (U. Stuttgart, Germany), %
+Nikola Vasiljevic (DTU Wind Energy, Denmark), %
+Ines Würth (U. Stuttgart), %
+Steffen Raach (U. Stuttgart \& sowento), %
+Florian Haizmann (ZSW), %
+Holger Fürst (U. Stuttgart).
+%% -----------------------------------
+%% Images
+%% -----------------------------------
+\textbf{Images:}
+Banner, left to right: \href{https://unsplash.com/@alexkixa}{Alexandre Debiève on Unsplash}, \href{http://ifb.uni-stuttgart.de}{SWE U. Stuttgart}, \href{https://unsplash.com/@markusspiske}{Markus Spiske on Unsplash}. Figure 1 by A. Clifton. Figure 2 by N. Vasiljevic.
+}
+
+%% -----------------------------------
+%% End of highlighted block
+%% -----------------------------------
+\end{tcolorbox}
 
 \end{document}
+
+% FH 20.09. Very nice and short summary of our ideas! Well done! Thanks for your efforts, Andy! (I only added two periods at the end of the captions of table 1 and figure 2.)
+% HF 25.09. Ditto! Thanks Andy for pushing OpenLidar forward! 
