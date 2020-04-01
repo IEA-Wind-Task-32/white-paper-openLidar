@@ -6,7 +6,7 @@ The OpenLidar initiative was started in 2015 by members of IEA Wind Task 32. Its
 
 ![](./3414197_banner.jpg)
 
-The opnLidar architecture and modules are documented at [https://github.com/e-WindLidar/OpenLidarModuleDefinitions](Github/e-WindLidar).
+The opnLidar architecture and modules are documented at [https://github.com/e-WindLidar/OpenLidarModuleDefinitions](https://github.com/e-WindLidar/OpenLidarModuleDefinitions).
 
 To find out more about Task 32 activities, see the Task 32 website at https://community.ieawind.org/task32/home.
 
