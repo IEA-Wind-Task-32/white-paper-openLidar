@@ -1,0 +1,483 @@
+% -------------------------------------------------------------
+% Identification Part
+% -------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Task32Flyer}
+\typeout{ }
+\typeout{Task32Flyer.sty -- v1.0}
+\typeout{Format an IEA Wind Task 32 Flyer}
+\typeout{  }
+
+% -------------------------------------------------------------
+% For more information
+% -------------------------------------------------------------
+% https://www.sharelatex.com/learn/Writing_your_own_class
+% https://tex.stackexchange.com/questions/71341/base-a-class-on-another-class
+% https://tex.stackexchange.com/questions/250159/how-to-pass-title-or-other-parameter-to-class-file
+
+% -------------------------------------------------------------
+% Check Packages
+% -------------------------------------------------------------
+\RequirePackage[l2tabu, orthodox]{nag}
+
+% -------------------------------------------------------------
+% Set PDF Properties
+% -------------------------------------------------------------
+%\pdfinterwordspaceon
+%\RequirePackage{pdf14}
+
+% -------------------------------------------------------------
+% Set Document Language
+%% -------------------------------------------------------------
+\RequirePackage[british]{babel}
+
+% -------------------------------------------------------------
+% Set paper layout (geometry) 
+% -------------------------------------------------------------
+\RequirePackage[a4paper,
+    left=1.5cm,
+    right=1.5cm,
+    bindingoffset=0pt,
+    columnsep=1.5cm,
+    tmargin = 60pt,
+    headheight = 48pt,
+    headsep = 6pt,
+    bmargin = 48pt,
+    %showframe
+    ]
+    {geometry}
+    
+\RequirePackage{tabularx}
+\RequirePackage{float}
+
+% -------------------------------------------------------------
+% Fonts and Symbols
+% -------------------------------------------------------------
+% switch to san serif
+\renewcommand{\familydefault}{\sfdefault}
+% want to use Open Sans for headings
+\RequirePackage[scale=0.95]{opensans}
+% this provides the "\fosfamily" switch when we want to use this
+% use lato for the rest
+\RequirePackage[default, defaultsans]{lato}
+
+\RequirePackage[utf8]{inputenc}
+
+% define some custom font weights and types
+% using concept set out at https://tex.stackexchange.com/questions/203771/use-open-sans-light-as-a-default-font-in-moderncv
+\DeclareRobustCommand\ebseries{\fontseries{eb}\selectfont}	% extrabold
+\DeclareRobustCommand\sbseries{\fontseries{sb}\selectfont}	% semibold
+\DeclareRobustCommand\ltseries{\fontseries{l}\selectfont}		% light
+\DeclareRobustCommand\clseries{\fontseries{cl}\selectfont}		% condensed light
+
+\DeclareTextFontCommand{\texteb}{\ebseries}
+\DeclareTextFontCommand{\textsb}{\sbseries}
+\DeclareTextFontCommand{\textlt}{\ltseries}
+\DeclareTextFontCommand{\textcl}{\clseries}
+
+% you get bold math whenever the surrounding text is in boldface
+\DeclareRobustCommand*{\bfseries}{%
+	\not@math@alphabet\bfseries\mathbf
+	\fontseries\bfdefault\selectfont
+	\boldmath
+}
+
+% ams math
+\RequirePackage{amsfonts,amssymb,amsmath}
+
+% gensymb. Required for degrees symbol
+\RequirePackage{textcomp}
+\RequirePackage{gensymb}
+
+% paragraph spacing
+\linespread{1.0}
+\setlength{\parskip}{0.5em}
+\setlength{\floatsep}{6pt plus 2pt minus 4pt}
+\setlength{\textfloatsep}{8pt plus 2pt minus 4pt}
+
+% -------------------------------------------------------------
+% Corporate Colours
+% -------------------------------------------------------------
+\RequirePackage{color}
+\RequirePackage[usenames,tables]{xcolor}
+% see example of colors here https://tex.stackexchange.com/questions/18008/use-css-style-color-specifications-in-xcolor
+\definecolor{Task32Blue}{HTML}{127bca}
+\definecolor{Task32Blue2}{HTML}{52a5e0}
+\definecolor{Task32BlueLight}{HTML}{b3dcF5}
+\definecolor{Task32Black}{HTML}{33363e}
+
+% set font color
+\definecolor{TextGrey}{HTML}{32323C}
+\color{TextGrey}
+
+\normalfont\normalsize
+
+\newcommand{\headlinecolor}{\normalcolor}
+
+% set link colors
+\definecolor{IntLinkColor}{named}{Task32Blue}
+\definecolor{ExtLinkColor}{named}{Task32Blue}
+
+% -------------------------------------------------------------
+% Appearance
+% -------------------------------------------------------------
+
+% better tables
+\RequirePackage{array}
+\RequirePackage{booktabs}
+
+% For including figures, ignoring the draft status
+\RequirePackage[final]{graphicx}
+
+% To stop hyphenation in titles etc
+\RequirePackage{hyphenat}
+
+% code listings
+\RequirePackage{listings}
+\lstset{basicstyle=\ttfamily}
+
+% -------------------------------------------------------------
+% Bibliography
+% -------------------------------------------------------------
+\RequirePackage[babel]{csquotes}
+    % Use numeric style for the bibliography
+    \RequirePackage[style=numeric,%
+    backend=bibtex,%
+    natbib=true,%
+    bibencoding=inputenc,%
+    sorting=none,%
+    url = true,%
+    doi=true,%
+    isbn = false,%
+    maxbibnames = 2,%
+	giveninits=true,%
+    maxcitenames = 2]{biblatex}
+    
+% suppress page numbers in the bibliography
+\AtEveryBibitem{%
+    \clearfield{pages}%
+    }
+% squish the bib
+\setlength\bibitemsep{0pt}
+% reduce the font size in the bibliography
+\renewcommand*{\bibfont}{\small}
+
+% change the name of the bib (see http://tex.stackexchange.com/questions/82993/how-to-change-the-name-of-document-elements-like-figure-contents-bibliogr)
+\DefineBibliographyStrings{american}{%
+    bibliography = {References},
+}
+% technical reports
+\DeclareBibliographyAlias{techreport}{book}
+% make one type of publication look like another
+\DeclareBibliographyAlias{*}{misc} % map unknown bibliography entry types to the misc type
+
+% make sure URLs in the bibliography are shown in roman fonts
+\urlstyle{same}
+
+% remove hanging indent
+\defbibenvironment{bibliography}
+ {\list
+ {\printtext[labelnumberwidth]{%
+    \printfield{labelprefix}%
+    \printfield{labelnumber}}}
+ {\setlength{\labelwidth}{\labelnumberwidth}%
+ \setlength{\leftmargin}{0pt}%{\labelwidth}%
+ \setlength{\labelsep}{\biblabelsep}%
+ %\addtolength{\leftmargin}{\labelsep}%
+ \setlength{\itemsep}{\bibitemsep}%
+ \setlength{\parsep}{\bibparsep}}%
+ \renewcommand*{\makelabel}[1]{\hss\hspace{\dimexpr\labelnumberwidth+\labelsep}##1}}
+ {\endlist}
+ {\item}
+
+
+
+% -------------------------------------------
+% Changes to TOC and list of figures/tables
+% -------------------------------------------
+
+
+% -------------------------------------------
+% Author list
+% -------------------------------------------
+
+% -------------------------------------------------------------
+% Version
+% -------------------------------------------------------------
+\newcommand\@version{}
+\newcommand\version[1]{\renewcommand\@version{#1}}
+
+% -------------------------------------------------------------
+% DOI
+% -------------------------------------------------------------
+\newcommand\@DOI{}
+\newcommand\DOI[1]{\renewcommand\@DOI{#1}}
+
+% -------------------------------------------------------------
+% Short Title
+% -------------------------------------------------------------
+\newcommand\@shorttitle{}
+\newcommand\shorttitle[1]{\renewcommand\@shorttitle{#1}}
+
+% -------------------------------------------
+% Title / Title Page
+% -------------------------------------------
+\let\Date\@date
+\let\Title\@title
+
+\def\@maketitle{%
+	% add back the space we just borrowed with the header
+	\vskip 4cm
+    % generate the title
+    %\textbf{An IEA Wind Task 32 White Paper}\par
+  {\huge\noindent\fosfamily\color{Task32Blue}\@title \par}%
+    \vskip 12pt%
+  }
+
+% -------------------------------------------
+% Chapter and section markings
+% -------------------------------------------
+\renewcommand{\section}{%
+    \@startsection{section}{1}{\z@}
+    {6pt}
+    {3pt}
+    {\color{Task32Blue}\fosfamily\large\ltseries\selectfont}}
+\renewcommand{\subsection}{%
+    \@startsection{subsection}{2}{\z@}
+    {3pt}
+    {1pt}
+    {\color{Task32Blue}\fosfamily\normalsize\sbseries\selectfont}}
+
+% Format Captions
+% see e.g. http://www.peteryu.ca/tutorials/publishing/latex_captions for details of how to adjust
+\RequirePackage[format=plain,
+    labelformat=simple,
+    font={small},
+    labelfont={it,small},
+    textfont={it,small},
+    indention=0cm,
+    labelsep=colon,
+    belowskip=0pt,
+    justification=centering,
+    singlelinecheck=true,
+    tableposition=top,
+    figureposition=bottom]{caption}
+\RequirePackage{subcaption}
+
+% --------------------
+% List Formatting
+% --------------------
+\RequirePackage{enumitem}
+\setlist{align=left,
+    noitemsep,
+    topsep= 0pt,
+    parsep = 0pt,
+    leftmargin=*,
+    labelindent=0mm,
+    partopsep=0pt}
+
+% --------------------
+% Text blocks
+% --------------------
+\RequirePackage[most]{tcolorbox}
+
+% --------------------
+% Footnotes
+% --------------------
+% Use symbols for footnotes (conflicts with numbered citations, otherwise)
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+%-----------------------
+% GENERAL CODE
+%-----------------------
+% Require at least 3 characters before a hyphenation.
+\lefthyphenmin=3
+
+% Don't hyphenate the months (or any proper noun---other proper nouns must be addressed in the tex file
+\hyphenation{January February April July August September October December}
+
+% Enumerate list environment -- change the default numbering to match our style
+\renewcommand{\theenumi}{\arabic{enumi}}
+\renewcommand{\theenumii}{\Alph{enumii}}
+\renewcommand{\theenumiii}{\roman{enumiii}}
+\renewcommand{\theenumiv}{\alph{enumiv}}
+\renewcommand{\labelenumi}{\theenumi.}
+\renewcommand{\labelenumii}{\theenumii.}
+\renewcommand{\labelenumiii}{\theenumiii.}
+\renewcommand{\labelenumiv}{\theenumiv)}
+
+% Add .pdf links
+\RequirePackage{hyperref}
+\hypersetup{unicode,%
+    final,%
+    linktocpage,%
+    colorlinks,%
+    breaklinks=true,%
+    linktocpage=true,%
+    linktoc=all,%
+    linkcolor=IntLinkColor,%
+    citecolor=IntLinkColor,%
+    menucolor=IntLinkColor,%
+    urlcolor=ExtLinkColor,%
+    pdfborder={0 0 0},%
+    pdflang={en-US}
+    }
+
+% --------------------
+% Badges
+% --------------------
+%define badges
+\RequirePackage{tikz}
+\usetikzlibrary{calc,
+    positioning}
+\RequirePackage[scaled]{helvet}
+
+\definecolor{ABlue}{HTML}{127bca}
+\definecolor{LHScolor}{HTML}{555555}
+
+% Creation of a dropped shadow
+\newcommand{\droptextshadow}[2]{%
+    \tikz[baseline,outer sep=0pt, inner sep=0pt]{
+    % Dropped Shadow
+    \node[#1!40!black] at (0,-0.1ex) {#2};
+    % Text
+    \node[white] at (0,0) {#2};
+}%
+}
+\newcommand{\DOIbadge}[1]{
+\tcbsidebyside[
+        bicolor,
+        sidebyside,
+        %fontupper=\color{white},fontlower=\color{white},%  <-- broken by sidebyside adapt (explicitely set in input)
+        sidebyside adapt=both,
+        sidebyside gap=5pt,
+        top=0pt,left=0pt,right=0pt,bottom=0pt,
+        boxrule=0pt,rounded corners,
+        interior style={top color=LHScolor,bottom color=LHScolor!60!black},
+        segmentation style={top color=ABlue,bottom color=ABlue!60!black},
+]{%
+\droptextshadow{LHScolor}{DOI}% <-- Drop shadow + text for DOI 
+}{%
+\droptextshadow{ABlue}{\hypersetup{hidelinks=true}\href{http://dx.doi.org/#1}{\fontfamily{phv}\selectfont #1}}% <-- Drop shadow + text for reference number + hyperref
+}%
+}
+
+%---------------------------------
+% HEADER AND FOOTER
+%----------------------------------
+
+\RequirePackage{fancyhdr}
+\fancyhf{}%
+
+\RequirePackage{tikzpagenodes}
+
+% --------------------
+% Set up the first page
+% --------------------
+\fancypagestyle{cover}{
+    % set the geometry for the first page
+    \fancyhf{}%
+    % header
+    \renewcommand{\headrulewidth}{0pt}
+    \lhead{%
+        \begin{tikzpicture}[remember picture,overlay]
+        \draw  let \p1=($(current page.north)-(current page header area.south)$),
+            \n1={veclen(\x1,\y1)} in
+            node [inner sep=0,outer sep=0,below right] 
+            at (current page.north west){\includegraphics[width=\paperwidth, height=5cm]{graphics/banner.png}};
+        \end{tikzpicture}%
+        }
+    % footers
+    \renewcommand{\footrulewidth}{0.5pt}
+    \cfoot{%
+    	\noindent%
+            \begin{tabularx}{\textwidth}[h]{%
+                % remove spacing between columns
+                @{}>{\raggedright}m{.33\textwidth}@{}%
+                @{}>{\centering}m{.33\textwidth}@{}%
+                @{}>{\raggedleft}m{.34\textwidth}@{}}
+    	        % left footer
+    	        {\textbf{IEA Wind Task 32}\\
+    		        \@shorttitle%
+    	        }
+    	    &
+    	        % center footer
+    	        \href{http://creativecommons.org/licenses/by-sa/4.0/}{\includegraphics[height=1.0cm]{graphics/CC-BY-SA.png}}
+    	    &
+    	        % right footer
+    	        {\DOIbadge{\@DOI} {\footnotesize Version \@version:\ \pubdate}}
+            \end{tabularx}
+		}
+    }
+
+% --------------------
+% Set up the other pages
+% --------------------
+% this will just be the default
+\fancypagestyle{plain}{
+    \fancyhf{}%
+    % headers
+    \renewcommand{\headrulewidth}{0.5pt}
+    \chead{%
+    	\noindent
+    \begin{tabularx}{\textwidth}[h]{%
+    		% remove spacing between columns
+    		@{}>{\raggedright}m{.33\textwidth}@{}%
+    		@{}>{\centering}m{.33\textwidth}@{}%
+    		@{}>{\raggedleft}m{.34\textwidth}@{}}
+    	% left footer
+    	{\textbf{IEA Wind Task 32}\\
+    		\@shorttitle%
+    	} &
+    	% center footer
+    	\href{http://creativecommons.org/licenses/by-sa/4.0/}{\includegraphics[height=1.0cm]{graphics/CC-BY-SA.png}}
+    	&
+    	% right footer
+        {\DOIbadge{\@DOI} {\footnotesize Version \@version:\ \pubdate}}
+    \end{tabularx}
+ 	}
+    % footers
+    \renewcommand{\footrulewidth}{0.5pt}
+    \lfoot{}
+    \cfoot{\thepage}
+    \rfoot{}
+}
+\pagestyle{plain}
+
+    
+%---------------------------------
+% REDUCE PDF SIZE
+%---------------------------------
+\pdfcompresslevel=9
+\pdfobjcompresslevel=3
+
+% fix header spacing
+%\setlength{\headheight}{43pt}
+
+%---------------------------------
+% THINGS WE NEED TO DO AT THE START OF A DOCUMENT
+%---------------------------------
+
+\AtBeginDocument{
+    % table font should be sans-serif
+    %\renewenvironment{table}
+    %	{\renewcommand\familydefault\sfdefault\selectfont
+    %	\@float{table}}
+    %	{\end@float}
+    % fix hyperlinks
+    \hypersetup{
+         pdftitle = {\ifdefempty{\@title}{%empty
+		IEA Wind Task 32
+		}{\@title}},
+        %pdfauthor = {\expandafter{\@author}}
+    }
+}
+\AfterEndPreamble{
+    %
+}
+% -------------------------------------------------------------
+% additional packages v1.2
+\RequirePackage{tabu}
+\RequirePackage{siunitx}
+\RequirePackage{pstool}
+% -------------------------------------------------------------

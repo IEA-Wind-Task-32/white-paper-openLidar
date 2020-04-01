@@ -1,0 +1,109 @@
+\newcounter{roadmap}
+
+\newtcolorbox[use counter=roadmap, list inside=roadmap,]{roadmap}[2][]{float=htb,
+        before={\noindent},
+		halign=flush left, 
+		title={Roadmap \thetcbcounter: #2},
+		list text = {#2},
+		coltitle=white,
+		% fonttitle=\bfseries,
+		coltext = TextGrey,
+		title filled = true,
+		halign title=flush center,
+		toptitle=3pt,
+		bottomtitle = 3pt,
+		every float=\centering, 
+		width=1.0\columnwidth,
+		boxsep=0pt,
+		left=3pt,
+		right=3pt,
+		top=3pt,
+		colback=Task32Blue!10!white, 
+		colframe=Task32Blue,
+		subtitle style = {colback=Task32Blue!10!white,
+		        colframe=Task32Blue!10!white,
+		        fontupper = \bfseries,
+		        boxrule = 0pt,
+				frame hidden,
+				coltitle = TextGrey},
+		#1}
+
+\newcommand{\event}[3]{
+	% #1 is the over-title
+	% #2 is the heading
+	% #3 is the explanatory text
+	\ifthenelse{\equal{#1}{}}{}{\textbf{#1:}\ }
+	{#2}
+	\ifthenelse{\equal{#3}{}}{}{\par\emph{#3}}
+}
+
+\newcommand{\taskevent}[5]{
+	% #1 is the year
+	% #2 is the month, quarter, whatever
+	% #3 is the over-title
+	% #4 is the heading
+	% #5 is the explanatory text	
+	#1 & #2 & \event{#3}{#4}{#5}
+}
+
+\newcommand{\otherevent}[3]{
+	% #1 is the year
+	% #2 is the month, quarter, whatever
+	% #3 is the explanatory text	
+	\emph{{\color{TextGrey!50!white}#1}} & \emph{{\color{TextGrey!50!white}#2}} & \emph{{\color{TextGrey!50!white}#3}}
+}
+
+\newcommand{\rmsubtitle}[2]{%
+    \tcbsubtitle{{\color{TextGrey}#1}}
+	#2
+}
+
+% make some subtitles
+\newcommand{\RMgoal}[1]{%
+    \ifthenelse{\equal{#1}{}}{%empty
+    }{%Nonempty.
+    \rmsubtitle{Our goal}{#1}}
+    }
+\newcommand{\RMactivities}{%
+    \rmsubtitle{Activities}
+    }%
+\newcommand{\RMdeliverables}[1]{%
+    \ifthenelse{\equal{#1}{}}{%empty
+    }{%Nonempty.
+    \rmsubtitle{Deliverables}{#1}}
+    }
+\newcommand{\RMoutcome}[1]{%
+    \ifthenelse{\equal{#1}{}}{%empty
+    }{%Nonempty.
+    \rmsubtitle{Outcome}{#1}}
+    }
+
+% Make a table for old activities
+\newenvironment{RMold}%
+{% before
+\begin{tabular}{@{}p{0.075\columnwidth} p{0.075\columnwidth} p{0.7\columnwidth}@{}} 
+}
+{% after
+\end{tabular}
+}
+
+% new activities
+\newenvironment{RMnew}%
+{% before
+\begin{tabular}{@{}p{0.075\columnwidth} p{0.075\columnwidth} p{0.7\columnwidth}@{}}
+}
+{% after
+\end{tabular}
+}
+
+\addto\captionsenglish{\renewcommand{\figurename}{Roadmap}}
+
+% stop floats slipping too far
+\usepackage[section]{placeins}
+
+% add an external link icon
+\usepackage[fixed]{fontawesome5}
+\newcommand{\extlink}[1]{%
+\mbox{\href{#1}{{\small\faExternalLink*}}}%
+}
+
